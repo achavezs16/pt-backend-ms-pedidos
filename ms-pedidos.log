@@ -1,0 +1,417 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< cl.pymetrack:ms-pedidos >-----------------------
+[INFO] Building MS-Pedidos 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.2.0:run (default-cli) > test-compile @ ms-pedidos >>>
+[WARNING] The artifact mysql:mysql-connector-java:jar:8.0.33 has been relocated to com.mysql:mysql-connector-j:jar:8.0.33: MySQL Connector/J artifacts moved to reverse-DNS compliant Maven 2+ coordinates.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ ms-pedidos ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 0 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ ms-pedidos ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ ms-pedidos ---
+[INFO] skip non existing resourceDirectory /Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/backend/ms-pedidos/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ ms-pedidos ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] <<< spring-boot:3.2.0:run (default-cli) < test-compile @ ms-pedidos <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.2.0:run (default-cli) @ ms-pedidos ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.0)
+
+2026-05-04T21:58:55.158-04:00  INFO 5427 --- [ms-pedidos] [           main] c.p.mspedidos.MsPedidosApplication       : Starting MsPedidosApplication using Java 25.0.2 with PID 5427 (/Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/backend/ms-pedidos/target/classes started by alvaro in /Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/backend/ms-pedidos)
+2026-05-04T21:58:55.160-04:00 DEBUG 5427 --- [ms-pedidos] [           main] c.p.mspedidos.MsPedidosApplication       : Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-05-04T21:58:55.160-04:00  INFO 5427 --- [ms-pedidos] [           main] c.p.mspedidos.MsPedidosApplication       : No active profile set, falling back to 1 default profile: "default"
+2026-05-04T21:58:55.714-04:00  INFO 5427 --- [ms-pedidos] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-04T21:58:55.743-04:00  INFO 5427 --- [ms-pedidos] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 25 ms. Found 1 JPA repository interface.
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.apache.tomcat.jni.Library in an unnamed module (file:/Users/alvaro/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.16/tomcat-embed-core-10.1.16.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+2026-05-04T21:58:56.206-04:00  INFO 5427 --- [ms-pedidos] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2026-05-04T21:58:56.212-04:00  INFO 5427 --- [ms-pedidos] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-04T21:58:56.212-04:00  INFO 5427 --- [ms-pedidos] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-05-04T21:58:56.254-04:00  INFO 5427 --- [ms-pedidos] [           main] o.a.c.c.C.[.[localhost].[/api/v1]        : Initializing Spring embedded WebApplicationContext
+2026-05-04T21:58:56.254-04:00  INFO 5427 --- [ms-pedidos] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1062 ms
+2026-05-04T21:58:56.459-04:00  INFO 5427 --- [ms-pedidos] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-04T21:58:56.489-04:00  INFO 5427 --- [ms-pedidos] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-05-04T21:58:56.508-04:00  INFO 5427 --- [ms-pedidos] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-05-04T21:58:56.654-04:00  INFO 5427 --- [ms-pedidos] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-04T21:58:56.668-04:00  INFO 5427 --- [ms-pedidos] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-04T21:58:56.785-04:00  INFO 5427 --- [ms-pedidos] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@66e12c3b
+2026-05-04T21:58:56.786-04:00  INFO 5427 --- [ms-pedidos] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-04T21:58:56.825-04:00  WARN 5427 --- [ms-pedidos] [           main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-04T21:58:57.439-04:00  INFO 5427 --- [ms-pedidos] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-04T21:58:57.504-04:00  INFO 5427 --- [ms-pedidos] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-04T21:58:58.128-04:00  WARN 5427 --- [ms-pedidos] [           main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2026-05-04T21:58:58.633-04:00  INFO 5427 --- [ms-pedidos] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoint(s) beneath base path '/actuator'
+2026-05-04T21:58:58.704-04:00  INFO 5427 --- [ms-pedidos] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/api/v1'
+2026-05-04T21:58:58.725-04:00  INFO 5427 --- [ms-pedidos] [           main] c.p.mspedidos.MsPedidosApplication       : Started MsPedidosApplication in 3.821 seconds (process running for 4.028)
+2026-05-04T21:59:15.587-04:00  INFO 5427 --- [ms-pedidos] [nio-8082-exec-1] o.a.c.c.C.[.[localhost].[/api/v1]        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-04T21:59:15.587-04:00  INFO 5427 --- [ms-pedidos] [nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-05-04T21:59:15.588-04:00  INFO 5427 --- [ms-pedidos] [nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-05-04T21:59:15.684-04:00 DEBUG 5427 --- [ms-pedidos] [nio-8082-exec-1] org.hibernate.SQL                        : 
+    select
+        p1_0.id,
+        p1_0.actualizado_en,
+        p1_0.comuna_entrega_chile,
+        p1_0.costo_despacho_chile,
+        p1_0.creado_en,
+        p1_0.direccion_entrega_chile,
+        p1_0.email_cliente,
+        p1_0.estado_pedido_pyme,
+        p1_0.etiqueta_despacho_pyme,
+        p1_0.id_pyme,
+        p1_0.nombre_cliente,
+        p1_0.notas_pedido,
+        p1_0.numero_orden_pyme,
+        p1_0.region_entrega_chile,
+        p1_0.subtotal,
+        p1_0.telefono_cliente,
+        p1_0.total_pedido 
+    from
+        pedido p1_0
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.actualizado_en,
+        p1_0.comuna_entrega_chile,
+        p1_0.costo_despacho_chile,
+        p1_0.creado_en,
+        p1_0.direccion_entrega_chile,
+        p1_0.email_cliente,
+        p1_0.estado_pedido_pyme,
+        p1_0.etiqueta_despacho_pyme,
+        p1_0.id_pyme,
+        p1_0.nombre_cliente,
+        p1_0.notas_pedido,
+        p1_0.numero_orden_pyme,
+        p1_0.region_entrega_chile,
+        p1_0.subtotal,
+        p1_0.telefono_cliente,
+        p1_0.total_pedido 
+    from
+        pedido p1_0
+2026-05-04T22:07:59.334-04:00  INFO 5427 --- [ms-pedidos] [nio-8082-exec-2] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2026-05-04T22:07:59.374-04:00  INFO 5427 --- [ms-pedidos] [nio-8082-exec-2] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#315bb2bb:0/SimpleConnection@ff89c1e [delegate=amqp://guest@127.0.0.1:5672/, localPort=54704]
+2026-05-04T22:07:59.377-04:00 DEBUG 5427 --- [ms-pedidos] [nio-8082-exec-2] o.s.amqp.rabbit.core.RabbitAdmin         : Initializing declarations
+2026-05-04T22:07:59.388-04:00 DEBUG 5427 --- [ms-pedidos] [nio-8082-exec-2] o.s.amqp.rabbit.core.RabbitAdmin         : Nothing to declare
+2026-05-04T22:07:59.402-04:00 DEBUG 5427 --- [ms-pedidos] [nio-8082-exec-2] o.s.a.r.c.CachingConnectionFactory       : Creating cached Rabbit Channel from AMQChannel(amqp://guest@127.0.0.1:5672/,1)
+2026-05-04T22:07:59.409-04:00 DEBUG 5427 --- [ms-pedidos] [nio-8082-exec-2] o.s.amqp.rabbit.core.RabbitTemplate      : Executing callback RabbitHealthIndicator$$Lambda/0x0000040001aebad0 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@5c59d365 Shared Rabbit Connection: SimpleConnection@ff89c1e [delegate=amqp://guest@127.0.0.1:5672/, localPort=54704]
+2026-05-04T22:08:01.345-04:00  WARN 5427 --- [ms-pedidos] [nio-8082-exec-2] o.s.b.actuate.mail.MailHealthIndicator   : Mail health check failed
+
+jakarta.mail.AuthenticationFailedException: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials a92af1059eb24-12df8431037sm18739271c88.12 - gsmtp
+
+	at org.eclipse.angus.mail.smtp.SMTPTransport$Authenticator.authenticate(SMTPTransport.java:954) ~[jakarta.mail-2.0.2.jar:na]
+	at org.eclipse.angus.mail.smtp.SMTPTransport.authenticate(SMTPTransport.java:865) ~[jakarta.mail-2.0.2.jar:na]
+	at org.eclipse.angus.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:769) ~[jakarta.mail-2.0.2.jar:na]
+	at jakarta.mail.Service.connect(Service.java:345) ~[jakarta.mail-2.0.2.jar:na]
+	at org.springframework.mail.javamail.JavaMailSenderImpl.connectTransport(JavaMailSenderImpl.java:480) ~[spring-context-support-6.1.1.jar:6.1.1]
+	at org.springframework.mail.javamail.JavaMailSenderImpl.testConnection(JavaMailSenderImpl.java:360) ~[spring-context-support-6.1.1.jar:6.1.1]
+	at org.springframework.boot.actuate.mail.MailHealthIndicator.doHealthCheck(MailHealthIndicator.java:52) ~[spring-boot-actuator-3.2.0.jar:3.2.0]
+	at org.springframework.boot.actuate.health.AbstractHealthIndicator.health(AbstractHealthIndicator.java:82) ~[spring-boot-actuator-3.2.0.jar:3.2.0]
+	at org.springframework.boot.actuate.health.HealthIndicator.getHealth(HealthIndicator.java:37) ~[spring-boot-actuator-3.2.0.jar:3.2.0]
+	at org.springframework.boot.actuate.health.HealthEndpointWebExtension.getHealth(HealthEndpointWebExtension.java:94) ~[spring-boot-actuator-3.2.0.jar:3.2.0]
+	at org.springframework.boot.actuate.health.HealthEndpointWebExtension.getHealth(HealthEndpointWebExtension.java:47) ~[spring-boot-actuator-3.2.0.jar:3.2.0]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getLoggedHealth(HealthEndpointSupport.java:172) ~[spring-boot-actuator-3.2.0.jar:3.2.0]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:145) ~[spring-boot-actuator-3.2.0.jar:3.2.0]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getAggregateContribution(HealthEndpointSupport.java:156) ~[spring-boot-actuator-3.2.0.jar:3.2.0]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:141) ~[spring-boot-actuator-3.2.0.jar:3.2.0]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:110) ~[spring-boot-actuator-3.2.0.jar:3.2.0]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:81) ~[spring-boot-actuator-3.2.0.jar:3.2.0]
+	at org.springframework.boot.actuate.health.HealthEndpointWebExtension.health(HealthEndpointWebExtension.java:80) ~[spring-boot-actuator-3.2.0.jar:3.2.0]
+	at org.springframework.boot.actuate.health.HealthEndpointWebExtension.health(HealthEndpointWebExtension.java:69) ~[spring-boot-actuator-3.2.0.jar:3.2.0]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:281) ~[spring-core-6.1.1.jar:6.1.1]
+	at org.springframework.boot.actuate.endpoint.invoke.reflect.ReflectiveOperationInvoker.invoke(ReflectiveOperationInvoker.java:74) ~[spring-boot-actuator-3.2.0.jar:3.2.0]
+	at org.springframework.boot.actuate.endpoint.annotation.AbstractDiscoveredOperation.invoke(AbstractDiscoveredOperation.java:60) ~[spring-boot-actuator-3.2.0.jar:3.2.0]
+	at org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$ServletWebOperationAdapter.handle(AbstractWebMvcEndpointHandlerMapping.java:321) ~[spring-boot-actuator-3.2.0.jar:3.2.0]
+	at org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(AbstractWebMvcEndpointHandlerMapping.java:428) ~[spring-boot-actuator-3.2.0.jar:3.2.0]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:254) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:182) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.16.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.16.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-05-04T22:08:05.779-04:00 DEBUG 5427 --- [ms-pedidos] [nio-8082-exec-3] org.hibernate.SQL                        : 
+    select
+        p1_0.id,
+        p1_0.actualizado_en,
+        p1_0.comuna_entrega_chile,
+        p1_0.costo_despacho_chile,
+        p1_0.creado_en,
+        p1_0.direccion_entrega_chile,
+        p1_0.email_cliente,
+        p1_0.estado_pedido_pyme,
+        p1_0.etiqueta_despacho_pyme,
+        p1_0.id_pyme,
+        p1_0.nombre_cliente,
+        p1_0.notas_pedido,
+        p1_0.numero_orden_pyme,
+        p1_0.region_entrega_chile,
+        p1_0.subtotal,
+        p1_0.telefono_cliente,
+        p1_0.total_pedido 
+    from
+        pedido p1_0
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.actualizado_en,
+        p1_0.comuna_entrega_chile,
+        p1_0.costo_despacho_chile,
+        p1_0.creado_en,
+        p1_0.direccion_entrega_chile,
+        p1_0.email_cliente,
+        p1_0.estado_pedido_pyme,
+        p1_0.etiqueta_despacho_pyme,
+        p1_0.id_pyme,
+        p1_0.nombre_cliente,
+        p1_0.notas_pedido,
+        p1_0.numero_orden_pyme,
+        p1_0.region_entrega_chile,
+        p1_0.subtotal,
+        p1_0.telefono_cliente,
+        p1_0.total_pedido 
+    from
+        pedido p1_0
+2026-05-04T22:15:38.567-04:00  WARN 5427 --- [ms-pedidos] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m11s535ms).
+2026-05-04T23:13:45.392-04:00  WARN 5427 --- [ms-pedidos] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=50m36s773ms).
+2026-05-04T23:20:24.801-04:00 DEBUG 5427 --- [ms-pedidos] [nio-8082-exec-4] org.hibernate.SQL                        : 
+    select
+        p1_0.id,
+        p1_0.actualizado_en,
+        p1_0.comuna_entrega_chile,
+        p1_0.costo_despacho_chile,
+        p1_0.creado_en,
+        p1_0.direccion_entrega_chile,
+        p1_0.email_cliente,
+        p1_0.estado_pedido_pyme,
+        p1_0.etiqueta_despacho_pyme,
+        p1_0.id_pyme,
+        p1_0.nombre_cliente,
+        p1_0.notas_pedido,
+        p1_0.numero_orden_pyme,
+        p1_0.region_entrega_chile,
+        p1_0.subtotal,
+        p1_0.telefono_cliente,
+        p1_0.total_pedido 
+    from
+        pedido p1_0
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.actualizado_en,
+        p1_0.comuna_entrega_chile,
+        p1_0.costo_despacho_chile,
+        p1_0.creado_en,
+        p1_0.direccion_entrega_chile,
+        p1_0.email_cliente,
+        p1_0.estado_pedido_pyme,
+        p1_0.etiqueta_despacho_pyme,
+        p1_0.id_pyme,
+        p1_0.nombre_cliente,
+        p1_0.notas_pedido,
+        p1_0.numero_orden_pyme,
+        p1_0.region_entrega_chile,
+        p1_0.subtotal,
+        p1_0.telefono_cliente,
+        p1_0.total_pedido 
+    from
+        pedido p1_0
+2026-05-04T23:26:14.146-04:00 DEBUG 5427 --- [ms-pedidos] [nio-8082-exec-6] org.hibernate.SQL                        : 
+    select
+        p1_0.id,
+        p1_0.actualizado_en,
+        p1_0.comuna_entrega_chile,
+        p1_0.costo_despacho_chile,
+        p1_0.creado_en,
+        p1_0.direccion_entrega_chile,
+        p1_0.email_cliente,
+        p1_0.estado_pedido_pyme,
+        p1_0.etiqueta_despacho_pyme,
+        p1_0.id_pyme,
+        p1_0.nombre_cliente,
+        p1_0.notas_pedido,
+        p1_0.numero_orden_pyme,
+        p1_0.region_entrega_chile,
+        p1_0.subtotal,
+        p1_0.telefono_cliente,
+        p1_0.total_pedido 
+    from
+        pedido p1_0
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.actualizado_en,
+        p1_0.comuna_entrega_chile,
+        p1_0.costo_despacho_chile,
+        p1_0.creado_en,
+        p1_0.direccion_entrega_chile,
+        p1_0.email_cliente,
+        p1_0.estado_pedido_pyme,
+        p1_0.etiqueta_despacho_pyme,
+        p1_0.id_pyme,
+        p1_0.nombre_cliente,
+        p1_0.notas_pedido,
+        p1_0.numero_orden_pyme,
+        p1_0.region_entrega_chile,
+        p1_0.subtotal,
+        p1_0.telefono_cliente,
+        p1_0.total_pedido 
+    from
+        pedido p1_0
+2026-05-04T23:30:29.665-04:00 DEBUG 5427 --- [ms-pedidos] [nio-8082-exec-8] org.hibernate.SQL                        : 
+    select
+        p1_0.id,
+        p1_0.actualizado_en,
+        p1_0.comuna_entrega_chile,
+        p1_0.costo_despacho_chile,
+        p1_0.creado_en,
+        p1_0.direccion_entrega_chile,
+        p1_0.email_cliente,
+        p1_0.estado_pedido_pyme,
+        p1_0.etiqueta_despacho_pyme,
+        p1_0.id_pyme,
+        p1_0.nombre_cliente,
+        p1_0.notas_pedido,
+        p1_0.numero_orden_pyme,
+        p1_0.region_entrega_chile,
+        p1_0.subtotal,
+        p1_0.telefono_cliente,
+        p1_0.total_pedido 
+    from
+        pedido p1_0
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.actualizado_en,
+        p1_0.comuna_entrega_chile,
+        p1_0.costo_despacho_chile,
+        p1_0.creado_en,
+        p1_0.direccion_entrega_chile,
+        p1_0.email_cliente,
+        p1_0.estado_pedido_pyme,
+        p1_0.etiqueta_despacho_pyme,
+        p1_0.id_pyme,
+        p1_0.nombre_cliente,
+        p1_0.notas_pedido,
+        p1_0.numero_orden_pyme,
+        p1_0.region_entrega_chile,
+        p1_0.subtotal,
+        p1_0.telefono_cliente,
+        p1_0.total_pedido 
+    from
+        pedido p1_0
+2026-05-04T23:31:33.441-04:00 DEBUG 5427 --- [ms-pedidos] [io-8082-exec-10] org.hibernate.SQL                        : 
+    select
+        p1_0.id,
+        p1_0.actualizado_en,
+        p1_0.comuna_entrega_chile,
+        p1_0.costo_despacho_chile,
+        p1_0.creado_en,
+        p1_0.direccion_entrega_chile,
+        p1_0.email_cliente,
+        p1_0.estado_pedido_pyme,
+        p1_0.etiqueta_despacho_pyme,
+        p1_0.id_pyme,
+        p1_0.nombre_cliente,
+        p1_0.notas_pedido,
+        p1_0.numero_orden_pyme,
+        p1_0.region_entrega_chile,
+        p1_0.subtotal,
+        p1_0.telefono_cliente,
+        p1_0.total_pedido 
+    from
+        pedido p1_0
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.actualizado_en,
+        p1_0.comuna_entrega_chile,
+        p1_0.costo_despacho_chile,
+        p1_0.creado_en,
+        p1_0.direccion_entrega_chile,
+        p1_0.email_cliente,
+        p1_0.estado_pedido_pyme,
+        p1_0.etiqueta_despacho_pyme,
+        p1_0.id_pyme,
+        p1_0.nombre_cliente,
+        p1_0.notas_pedido,
+        p1_0.numero_orden_pyme,
+        p1_0.region_entrega_chile,
+        p1_0.subtotal,
+        p1_0.telefono_cliente,
+        p1_0.total_pedido 
+    from
+        pedido p1_0
+2026-05-05T01:38:30.529-04:00 DEBUG 5427 --- [ms-pedidos] [ionShutdownHook] o.s.a.r.c.CachingConnectionFactory       : Closing cached Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1)
+2026-05-05T01:38:30.559-04:00  INFO 5427 --- [ms-pedidos] [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-05T01:38:30.577-04:00  INFO 5427 --- [ms-pedidos] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-05-05T01:38:30.587-04:00  INFO 5427 --- [ms-pedidos] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

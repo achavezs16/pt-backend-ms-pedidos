@@ -1,0 +1,5 @@
+cl/pymetrack/mspedidos/entity/Pedido.class
+cl/pymetrack/mspedidos/entity/Pedido$EstadoPedidoPyme.class
+cl/pymetrack/mspedidos/controller/PedidoController.class
+cl/pymetrack/mspedidos/repository/PedidoRepository.class
+cl/pymetrack/mspedidos/MsPedidosApplication.class

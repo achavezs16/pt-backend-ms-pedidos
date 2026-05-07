@@ -1,0 +1,81 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /api/v1
+
+spring:
+  application:
+    name: ms-pedidos
+  
+  datasource:
+    url: jdbc:mysql://localhost:3307/ms_pedidos?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: root
+    password: password 
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+    open-in-view: false
+    
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+    
+  jackson:
+    time-zone: UTC
+    date-format: yyyy-MM-dd HH:mm:ss
+    
+  # Configuración de email (simulado para MVP)
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: noreply@pymetrack.cl
+    password: ${EMAIL_PASSWORD:password}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    from: PymeTrack <noreply@pymetrack.cl>
+
+# Configuración de colas RabbitMQ - PymeTrack
+rabbitmq:
+  queues:
+    envio-actualizado: pymetrack.envio.actualizado
+    notificacion-pendiente: pymetrack.notificacion.pendiente
+    envios-actualizados: pymetrack.envios.actualizados
+    notificaciones-pendientes: pymetrack.notificaciones.pendientes
+  exchanges:
+    pymetrack-notificaciones: pymetrack.notificaciones.exchange
+    pymetrack-envios: pymetrack.envios.exchange
+  routing-keys:
+    envios-actualizados: pymetrack.envios.actualizados
+    notificaciones-pendientes: pymetrack.notificaciones.pendientes
+
+# Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
+# Logging
+logging:
+  level:
+    cl.pymetrack.mspedidos: DEBUG
+    org.springframework.amqp: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
