@@ -1,69 +1,65 @@
 package cl.pymetrack.mspedidos.controller;
 
+import cl.pymetrack.mspedidos.dto.ActualizarEstadoPedidoRequest;
 import cl.pymetrack.mspedidos.entity.Pedido;
-import cl.pymetrack.mspedidos.repository.PedidoRepository;
+import cl.pymetrack.mspedidos.service.PedidoService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/pedidos")
 @CrossOrigin(origins = "*")
 public class PedidoController {
-    
-    private final PedidoRepository pedidoRepository;
-    
-    public PedidoController(PedidoRepository pedidoRepository) {
-        this.pedidoRepository = pedidoRepository;
+
+    private final PedidoService pedidoService;
+
+    public PedidoController(PedidoService pedidoService) {
+        this.pedidoService = pedidoService;
     }
-    
+
     @GetMapping
-    public ResponseEntity<List<Pedido>> getAllPedidos() {
-        return ResponseEntity.ok(pedidoRepository.findAll());
+    public ResponseEntity<List<Pedido>> findAll() {
+        return ResponseEntity.ok(pedidoService.findAll());
     }
-    
+
     @GetMapping("/{id}")
-    public ResponseEntity<Pedido> getPedidoById(@PathVariable Long id) {
-        Optional<Pedido> pedido = pedidoRepository.findById(id);
-        return pedido.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+    public ResponseEntity<Pedido> findById(@PathVariable Long id) {
+        return ResponseEntity.ok(pedidoService.findById(id));
     }
-    
+
     @GetMapping("/pyme/{pymeId}")
-    public ResponseEntity<List<Pedido>> getPedidosByPyme(@PathVariable Long pymeId) {
-        List<Pedido> pedidos = pedidoRepository.findByIdPymeOrderByCreadoEnDesc(pymeId);
-        return ResponseEntity.ok(pedidos);
+    public ResponseEntity<List<Pedido>> findByPyme(@PathVariable Long pymeId) {
+        return ResponseEntity.ok(pedidoService.findByPyme(pymeId));
     }
-    
-    @GetMapping("/numero-orden/{numeroOrden}")
-    public ResponseEntity<Pedido> getPedidoByNumeroOrden(@PathVariable String numeroOrden) {
-        Optional<Pedido> pedido = pedidoRepository.findByNumeroOrdenPyme(numeroOrden);
-        return pedido.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
-    }
-    
+
     @PostMapping
-    public ResponseEntity<Pedido> createPedido(@RequestBody Pedido pedido) {
-        Pedido savedPedido = pedidoRepository.save(pedido);
-        return ResponseEntity.ok(savedPedido);
+    public ResponseEntity<Pedido> create(@RequestBody Pedido pedido) {
+        return ResponseEntity.ok(pedidoService.save(pedido));
     }
-    
-    @PutMapping("/{id}")
-    public ResponseEntity<Pedido> updatePedido(@PathVariable Long id, @RequestBody Pedido pedido) {
-        if (!pedidoRepository.existsById(id)) {
-            return ResponseEntity.notFound().build();
-        }
-        pedido.setId(id);
-        Pedido updatedPedido = pedidoRepository.save(pedido);
-        return ResponseEntity.ok(updatedPedido);
+
+    @PatchMapping("/{id}/estado")
+    public ResponseEntity<Pedido> actualizarEstado(
+            @PathVariable Long id,
+            @RequestBody ActualizarEstadoPedidoRequest request
+    ) {
+        return ResponseEntity.ok(pedidoService.actualizarEstado(id, request));
     }
-    
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletePedido(@PathVariable Long id) {
-        if (!pedidoRepository.existsById(id)) {
-            return ResponseEntity.notFound().build();
-        }
-        pedidoRepository.deleteById(id);
-        return ResponseEntity.ok().build();
+
+    @PostMapping("/{id}/aceptar")
+    public ResponseEntity<Pedido> aceptarPedido(
+            @PathVariable Long id,
+            @RequestParam Long repartidorId
+    ) {
+        return ResponseEntity.ok(pedidoService.aceptarPedido(id, repartidorId));
+    }
+
+    @PostMapping("/{id}/rechazar")
+    public ResponseEntity<Pedido> rechazarPedido(
+            @PathVariable Long id,
+            @RequestParam Long repartidorId
+    ) {
+        return ResponseEntity.ok(pedidoService.rechazarPedido(id, repartidorId));
     }
 }

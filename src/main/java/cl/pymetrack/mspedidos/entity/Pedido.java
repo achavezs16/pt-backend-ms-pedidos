@@ -3,6 +3,7 @@ package cl.pymetrack.mspedidos.entity;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import cl.pymetrack.mspedidos.model.EstadoPedido;
 
 @Entity
 @Table(name = "pedido")
@@ -38,7 +39,7 @@ public class Pedido {
     
     @Column(name = "estado_pedido_pyme", nullable = false)
     @Enumerated(EnumType.STRING)
-    private EstadoPedidoPyme estadoPedidoPyme = EstadoPedidoPyme.PENDIENTE_CHILE;
+    private EstadoPedido estadoPedidoPyme = EstadoPedido.DISPONIBLE;
     
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal subtotal;
@@ -61,12 +62,6 @@ public class Pedido {
     @Column(name = "actualizado_en")
     private LocalDateTime actualizadoEn = LocalDateTime.now();
     
-    public enum EstadoPedidoPyme {
-        PENDIENTE_CHILE,
-        CONFIRMADO_CHILE,
-        PREPARACION_CHILE,
-        CANCELADO_CHILE
-    }
     
     // Constructors
     public Pedido() {}
@@ -158,11 +153,11 @@ public class Pedido {
         this.regionEntregaChile = regionEntregaChile;
     }
     
-    public EstadoPedidoPyme getEstadoPedidoPyme() {
+    public EstadoPedido getEstadoPedidoPyme() {
         return estadoPedidoPyme;
     }
     
-    public void setEstadoPedidoPyme(EstadoPedidoPyme estadoPedidoPyme) {
+    public void setEstadoPedidoPyme(EstadoPedido estadoPedidoPyme) {
         this.estadoPedidoPyme = estadoPedidoPyme;
     }
     
