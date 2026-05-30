@@ -1,8 +1,11 @@
 package cl.pymetrack.mspedidos.event;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class PedidoEstadoEvent {
+public class PedidoEstadoEvent implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private Long pedidoId;
     private Long idPyme;
@@ -35,52 +38,52 @@ public class PedidoEstadoEvent {
         return pedidoId;
     }
 
-    public Long getIdPyme() {
-        return idPyme;
-    }
-
-    public String getEstadoAnterior() {
-        return estadoAnterior;
-    }
-
-    public String getEstadoNuevo() {
-        return estadoNuevo;
-    }
-
-    public Long getRepartidorId() {
-        return repartidorId;
-    }
-
-    public String getObservacion() {
-        return observacion;
-    }
-
-    public LocalDateTime getFechaEvento() {
-        return fechaEvento;
-    }
-
     public void setPedidoId(Long pedidoId) {
         this.pedidoId = pedidoId;
+    }
+
+    public Long getIdPyme() {
+        return idPyme;
     }
 
     public void setIdPyme(Long idPyme) {
         this.idPyme = idPyme;
     }
 
+    public String getEstadoAnterior() {
+        return estadoAnterior;
+    }
+
     public void setEstadoAnterior(String estadoAnterior) {
         this.estadoAnterior = estadoAnterior;
+    }
+
+    public String getEstadoNuevo() {
+        return estadoNuevo;
     }
 
     public void setEstadoNuevo(String estadoNuevo) {
         this.estadoNuevo = estadoNuevo;
     }
 
+    public Long getRepartidorId() {
+        return repartidorId;
+    }
+
     public void setRepartidorId(Long repartidorId) {
         this.repartidorId = repartidorId;
     }
 
+    public String getObservacion() {
+        return observacion;
+    }
+
     public void setObservacion(String observacion) {
         this.observacion = observacion;
+    }
+
+    public LocalDateTime getFechaEvento() {
+        return fechaEvento;
     }
 
     public void setFechaEvento(LocalDateTime fechaEvento) {
