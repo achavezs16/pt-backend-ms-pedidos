@@ -1,11 +1,8 @@
 package cl.pymetrack.mspedidos.event;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class PedidoEstadoEvent implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+public class PedidoEstadoEvent {
 
     private Long pedidoId;
     private Long idPyme;
@@ -34,59 +31,24 @@ public class PedidoEstadoEvent implements Serializable {
         this.fechaEvento = LocalDateTime.now();
     }
 
-    public Long getPedidoId() {
-        return pedidoId;
-    }
+    public Long getPedidoId() { return pedidoId; }
+    public void setPedidoId(Long pedidoId) { this.pedidoId = pedidoId; }
 
-    public void setPedidoId(Long pedidoId) {
-        this.pedidoId = pedidoId;
-    }
+    public Long getIdPyme() { return idPyme; }
+    public void setIdPyme(Long idPyme) { this.idPyme = idPyme; }
 
-    public Long getIdPyme() {
-        return idPyme;
-    }
+    public String getEstadoAnterior() { return estadoAnterior; }
+    public void setEstadoAnterior(String estadoAnterior) { this.estadoAnterior = estadoAnterior; }
 
-    public void setIdPyme(Long idPyme) {
-        this.idPyme = idPyme;
-    }
+    public String getEstadoNuevo() { return estadoNuevo; }
+    public void setEstadoNuevo(String estadoNuevo) { this.estadoNuevo = estadoNuevo; }
 
-    public String getEstadoAnterior() {
-        return estadoAnterior;
-    }
+    public Long getRepartidorId() { return repartidorId; }
+    public void setRepartidorId(Long repartidorId) { this.repartidorId = repartidorId; }
 
-    public void setEstadoAnterior(String estadoAnterior) {
-        this.estadoAnterior = estadoAnterior;
-    }
+    public String getObservacion() { return observacion; }
+    public void setObservacion(String observacion) { this.observacion = observacion; }
 
-    public String getEstadoNuevo() {
-        return estadoNuevo;
-    }
-
-    public void setEstadoNuevo(String estadoNuevo) {
-        this.estadoNuevo = estadoNuevo;
-    }
-
-    public Long getRepartidorId() {
-        return repartidorId;
-    }
-
-    public void setRepartidorId(Long repartidorId) {
-        this.repartidorId = repartidorId;
-    }
-
-    public String getObservacion() {
-        return observacion;
-    }
-
-    public void setObservacion(String observacion) {
-        this.observacion = observacion;
-    }
-
-    public LocalDateTime getFechaEvento() {
-        return fechaEvento;
-    }
-
-    public void setFechaEvento(LocalDateTime fechaEvento) {
-        this.fechaEvento = fechaEvento;
-    }
+    public LocalDateTime getFechaEvento() { return fechaEvento; }
+    public void setFechaEvento(LocalDateTime fechaEvento) { this.fechaEvento = fechaEvento; }
 }
