@@ -3,6 +3,8 @@ package cl.pymetrack.mspedidos.entity;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import cl.pymetrack.mspedidos.model.EstadoPedido;
 
 @Entity
@@ -61,6 +63,9 @@ public class Pedido {
     
     @Column(name = "actualizado_en")
     private LocalDateTime actualizadoEn = LocalDateTime.now();
+
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<PedidoItem> items = new ArrayList<>();
     
     
     // Constructors
@@ -215,6 +220,14 @@ public class Pedido {
     
     public void setActualizadoEn(LocalDateTime actualizadoEn) {
         this.actualizadoEn = actualizadoEn;
+    }
+
+    public List<PedidoItem> getItems() {
+        return items;
+    }
+
+    public void setItems(List<PedidoItem> items) {
+        this.items = items;
     }
     
     @PreUpdate
