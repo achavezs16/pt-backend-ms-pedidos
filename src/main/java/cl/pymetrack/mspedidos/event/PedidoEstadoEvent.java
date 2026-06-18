@@ -1,6 +1,7 @@
 package cl.pymetrack.mspedidos.event;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class PedidoEstadoEvent {
 
@@ -11,6 +12,7 @@ public class PedidoEstadoEvent {
     private Long repartidorId;
     private String observacion;
     private LocalDateTime fechaEvento;
+    private List<PedidoItemEvent> items;
 
     public PedidoEstadoEvent() {}
 
@@ -20,7 +22,8 @@ public class PedidoEstadoEvent {
             String estadoAnterior,
             String estadoNuevo,
             Long repartidorId,
-            String observacion
+            String observacion,
+            List<PedidoItemEvent> items
     ) {
         this.pedidoId = pedidoId;
         this.idPyme = idPyme;
@@ -28,6 +31,7 @@ public class PedidoEstadoEvent {
         this.estadoNuevo = estadoNuevo;
         this.repartidorId = repartidorId;
         this.observacion = observacion;
+        this.items = items;
         this.fechaEvento = LocalDateTime.now();
     }
 
@@ -51,4 +55,7 @@ public class PedidoEstadoEvent {
 
     public LocalDateTime getFechaEvento() { return fechaEvento; }
     public void setFechaEvento(LocalDateTime fechaEvento) { this.fechaEvento = fechaEvento; }
+
+    public List<PedidoItemEvent> getItems() { return items; }
+    public void setItems(List<PedidoItemEvent> items) { this.items = items; }
 }

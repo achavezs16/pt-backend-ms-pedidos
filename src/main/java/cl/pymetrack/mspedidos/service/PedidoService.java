@@ -9,6 +9,7 @@ import cl.pymetrack.mspedidos.repository.PedidoRepository;
 import cl.pymetrack.mspedidos.dto.CrearPedidoItemRequest;
 import cl.pymetrack.mspedidos.dto.CrearPedidoRequest;
 import cl.pymetrack.mspedidos.entity.PedidoItem;
+import cl.pymetrack.mspedidos.event.PedidoItemEvent;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,6 +18,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 @Service
 public class PedidoService {
@@ -104,6 +106,15 @@ public class PedidoService {
         pedido.setEstadoPedidoPyme(nuevoEstado);
         pedido.setActualizadoEn(LocalDateTime.now());
 
+        List<PedidoItemEvent> items = pedido.getItems()
+                .stream()
+                .map(item -> new PedidoItemEvent(
+                        item.getProductoId(),
+                        item.getNombreProducto(),
+                        item.getCantidad()
+                ))
+                .collect(Collectors.toList());
+
         Pedido pedidoActualizado = pedidoRepository.save(pedido);
 
         PedidoEstadoEvent event = new PedidoEstadoEvent(
@@ -112,7 +123,8 @@ public class PedidoService {
                 estadoAnterior,
                 nuevoEstado.name(),
                 request.getRepartidorId(),
-                request.getObservacion()
+                request.getObservacion(),
+                items
         );
 
         pedidoEventPublisher.publicarCambioEstado(event);
