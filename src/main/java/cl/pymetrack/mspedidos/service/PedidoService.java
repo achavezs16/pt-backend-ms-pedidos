@@ -6,11 +6,19 @@ import cl.pymetrack.mspedidos.event.PedidoEstadoEvent;
 import cl.pymetrack.mspedidos.messaging.PedidoEventPublisher;
 import cl.pymetrack.mspedidos.model.EstadoPedido;
 import cl.pymetrack.mspedidos.repository.PedidoRepository;
+import cl.pymetrack.mspedidos.dto.CrearPedidoItemRequest;
+import cl.pymetrack.mspedidos.dto.CrearPedidoRequest;
+import cl.pymetrack.mspedidos.entity.PedidoItem;
+import cl.pymetrack.mspedidos.event.PedidoItemEvent;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 @Service
 public class PedidoService {
@@ -41,14 +49,71 @@ public class PedidoService {
     }
 
     @Transactional
+    public Pedido crearPedido(CrearPedidoRequest request) {
+        if (request.getItems() == null || request.getItems().isEmpty()) {
+            throw new IllegalArgumentException("El pedido debe tener al menos un producto");
+        }
+
+        Pedido pedido = new Pedido();
+
+        pedido.setIdPyme(request.getIdPyme());
+        pedido.setNumeroOrdenPyme(request.getNumeroOrdenPyme());
+        pedido.setNombreCliente(request.getNombreCliente());
+        pedido.setEmailCliente(request.getEmailCliente());
+        pedido.setTelefonoCliente(request.getTelefonoCliente());
+        pedido.setDireccionEntregaChile(request.getDireccionEntregaChile());
+        pedido.setComunaEntregaChile(request.getComunaEntregaChile());
+        pedido.setRegionEntregaChile(request.getRegionEntregaChile());
+
+        pedido.setSubtotal(request.getSubtotal());
+        pedido.setCostoDespachoChile(
+                request.getCostoDespachoChile() != null
+                        ? request.getCostoDespachoChile()
+                        : BigDecimal.ZERO
+        );
+        pedido.setTotalPedido(request.getTotalPedido());
+
+        pedido.setEtiquetaDespachoPyme(request.getEtiquetaDespachoPyme());
+        pedido.setNotasPedido(request.getNotasPedido());
+
+        pedido.setItems(new ArrayList<>());
+
+        for (CrearPedidoItemRequest itemRequest : request.getItems()) {
+            if (itemRequest.getCantidad() == null || itemRequest.getCantidad() <= 0) {
+                throw new IllegalArgumentException("La cantidad del producto debe ser mayor a cero");
+            }
+
+            PedidoItem item = new PedidoItem();
+            item.setPedido(pedido);
+            item.setProductoId(itemRequest.getProductoId());
+            item.setNombreProducto(itemRequest.getNombreProducto());
+            item.setCantidad(itemRequest.getCantidad());
+            item.setPrecioUnitario(itemRequest.getPrecioUnitario());
+
+            pedido.getItems().add(item);
+        }
+
+        return pedidoRepository.save(pedido);
+    }
+
+    @Transactional
     public Pedido actualizarEstado(Long pedidoId, ActualizarEstadoPedidoRequest request) {
         Pedido pedido = findById(pedidoId);
 
         String estadoAnterior = pedido.getEstadoPedidoPyme().name();
-        EstadoPedido nuevoEstado = EstadoPedido.valueOf(request.getEstado());
+        EstadoPedido nuevoEstado = EstadoPedido.valueOf(request.getEstado().trim().toUpperCase());
 
         pedido.setEstadoPedidoPyme(nuevoEstado);
         pedido.setActualizadoEn(LocalDateTime.now());
+
+        List<PedidoItemEvent> items = pedido.getItems()
+                .stream()
+                .map(item -> new PedidoItemEvent(
+                        item.getProductoId(),
+                        item.getNombreProducto(),
+                        item.getCantidad()
+                ))
+                .collect(Collectors.toList());
 
         Pedido pedidoActualizado = pedidoRepository.save(pedido);
 
@@ -58,8 +123,18 @@ public class PedidoService {
                 estadoAnterior,
                 nuevoEstado.name(),
                 request.getRepartidorId(),
-                request.getObservacion()
+                request.getObservacion(),
+                items
         );
+
+        System.out.println("📤 Publicando evento RabbitMQ: pedido="
+                + event.getPedidoId()
+                + " estadoAnterior="
+                + event.getEstadoAnterior()
+                + " estadoNuevo="
+                + event.getEstadoNuevo()
+                + " items="
+                + event.getItems().size());
 
         pedidoEventPublisher.publicarCambioEstado(event);
 
