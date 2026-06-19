@@ -101,7 +101,7 @@ public class PedidoService {
         Pedido pedido = findById(pedidoId);
 
         String estadoAnterior = pedido.getEstadoPedidoPyme().name();
-        EstadoPedido nuevoEstado = EstadoPedido.valueOf(request.getEstado());
+        EstadoPedido nuevoEstado = EstadoPedido.valueOf(request.getEstado().trim().toUpperCase());
 
         pedido.setEstadoPedidoPyme(nuevoEstado);
         pedido.setActualizadoEn(LocalDateTime.now());
@@ -126,6 +126,15 @@ public class PedidoService {
                 request.getObservacion(),
                 items
         );
+
+        System.out.println("📤 Publicando evento RabbitMQ: pedido="
+                + event.getPedidoId()
+                + " estadoAnterior="
+                + event.getEstadoAnterior()
+                + " estadoNuevo="
+                + event.getEstadoNuevo()
+                + " items="
+                + event.getItems().size());
 
         pedidoEventPublisher.publicarCambioEstado(event);
 
