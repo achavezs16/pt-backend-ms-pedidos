@@ -120,6 +120,8 @@ public class PedidoService {
         PedidoEstadoEvent event = new PedidoEstadoEvent(
                 pedidoActualizado.getId(),
                 pedidoActualizado.getIdPyme(),
+                pedidoActualizado.getNombreCliente(),
+                pedidoActualizado.getEmailCliente(),
                 estadoAnterior,
                 nuevoEstado.name(),
                 request.getRepartidorId(),
