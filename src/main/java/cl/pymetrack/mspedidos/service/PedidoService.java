@@ -32,7 +32,7 @@ public class PedidoService {
     }
 
     public List<Pedido> findAll() {
-        return pedidoRepository.findAll();
+        return pedidoRepository.findAllByOrderByCreadoEnDesc();
     }
 
     public List<Pedido> findByPyme(Long pymeId) {
@@ -120,6 +120,8 @@ public class PedidoService {
         PedidoEstadoEvent event = new PedidoEstadoEvent(
                 pedidoActualizado.getId(),
                 pedidoActualizado.getIdPyme(),
+                pedidoActualizado.getNombreCliente(),
+                pedidoActualizado.getEmailCliente(),
                 estadoAnterior,
                 nuevoEstado.name(),
                 request.getRepartidorId(),

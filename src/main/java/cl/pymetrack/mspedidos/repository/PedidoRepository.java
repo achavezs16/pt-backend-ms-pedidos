@@ -16,6 +16,9 @@ public interface PedidoRepository extends JpaRepository<Pedido, Long> {
     @EntityGraph(attributePaths = "items")
     List<Pedido> findAll();
 
+    @EntityGraph(attributePaths = "items")
+    List<Pedido> findAllByOrderByCreadoEnDesc();
+
     Optional<Pedido> findByNumeroOrdenPyme(String numeroOrdenPyme);
 
     @EntityGraph(attributePaths = "items")

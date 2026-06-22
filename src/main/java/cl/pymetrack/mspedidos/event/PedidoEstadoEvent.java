@@ -7,6 +7,8 @@ public class PedidoEstadoEvent {
 
     private Long pedidoId;
     private Long idPyme;
+    private String nombreCliente;
+    private String emailCliente;
     private String estadoAnterior;
     private String estadoNuevo;
     private Long repartidorId;
@@ -19,6 +21,8 @@ public class PedidoEstadoEvent {
     public PedidoEstadoEvent(
             Long pedidoId,
             Long idPyme,
+            String nombreCliente,
+            String emailCliente,
             String estadoAnterior,
             String estadoNuevo,
             Long repartidorId,
@@ -27,6 +31,8 @@ public class PedidoEstadoEvent {
     ) {
         this.pedidoId = pedidoId;
         this.idPyme = idPyme;
+        this.nombreCliente = nombreCliente;
+        this.emailCliente = emailCliente;
         this.estadoAnterior = estadoAnterior;
         this.estadoNuevo = estadoNuevo;
         this.repartidorId = repartidorId;
@@ -40,6 +46,12 @@ public class PedidoEstadoEvent {
 
     public Long getIdPyme() { return idPyme; }
     public void setIdPyme(Long idPyme) { this.idPyme = idPyme; }
+
+    public String getNombreCliente() { return nombreCliente; }
+    public void setNombreCliente(String nombreCliente) { this.nombreCliente = nombreCliente; }
+
+    public String getEmailCliente() { return emailCliente; }
+    public void setEmailCliente(String emailCliente) { this.emailCliente = emailCliente; }
 
     public String getEstadoAnterior() { return estadoAnterior; }
     public void setEstadoAnterior(String estadoAnterior) { this.estadoAnterior = estadoAnterior; }
