@@ -15,6 +15,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.math.BigDecimal;
@@ -63,7 +64,7 @@ class PedidoServiceTest {
 
     @Test
     void testFindAll_DebeRetornarListaDePedidos() {
-        when(pedidoRepository.findAll()).thenReturn(List.of(pedidoFicticio));
+        Mockito.when(this.pedidoRepository.findAllByOrderByCreadoEnDesc()).thenReturn(List.of(this.pedidoFicticio));
         List<Pedido> resultado = pedidoService.findAll();
         assertFalse(resultado.isEmpty());
         assertEquals(1, resultado.size());
