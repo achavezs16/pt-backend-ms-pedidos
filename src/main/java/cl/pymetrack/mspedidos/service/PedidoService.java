@@ -32,7 +32,7 @@ public class PedidoService {
     }
 
     public List<Pedido> findAll() {
-        return pedidoRepository.findAll();
+        return pedidoRepository.findAllByOrderByCreadoEnDesc();
     }
 
     public List<Pedido> findByPyme(Long pymeId) {
