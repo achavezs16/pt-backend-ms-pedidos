@@ -8,7 +8,7 @@ spring:
     name: ms-pedidos
   
   datasource:
-    url: jdbc:mysql://pymetrack-db.c9wmkhboh8bt.us-east-1.rds.amazonaws.com:3306/ms_pedidos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    url: jdbc:mysql://pymetrack-db.cuuv61sgfvhp.us-east-1.rds.amazonaws.com:3306/ms_pedidos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
     username: pymetrack
     password: pymetrack123 
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -24,7 +24,7 @@ spring:
     open-in-view: false
     
   rabbitmq:
-    host: 172.31.18.6
+    host: 172.31.68.175
     port: 5672
     username: guest
     password: guest
