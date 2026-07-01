@@ -8,9 +8,9 @@ spring:
     name: ms-pedidos
   
   datasource:
-    url: jdbc:mysql://localhost:3307/ms_pedidos?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
-    username: root
-    password: password 
+    url: jdbc:mysql://pymetrack-db.cuuv61sgfvhp.us-east-1.rds.amazonaws.com:3306/ms_pedidos?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: pymetrack
+    password: pymetrack123 
     driver-class-name: com.mysql.cj.jdbc.Driver
     
   jpa:
@@ -24,7 +24,7 @@ spring:
     open-in-view: false
     
   rabbitmq:
-    host: localhost
+    host: 172.31.68.175
     port: 5672
     username: guest
     password: guest
@@ -64,6 +64,9 @@ rabbitmq:
 
 # Actuator
 management:
+  health:
+    mail:
+      enabled: false
   endpoints:
     web:
       exposure:

@@ -1,89 +1,73 @@
 package cl.pymetrack.mspedidos.event;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class PedidoEstadoEvent {
 
     private Long pedidoId;
     private Long idPyme;
+    private String nombreCliente;
+    private String emailCliente;
     private String estadoAnterior;
     private String estadoNuevo;
     private Long repartidorId;
     private String observacion;
     private LocalDateTime fechaEvento;
+    private List<PedidoItemEvent> items;
 
     public PedidoEstadoEvent() {}
 
     public PedidoEstadoEvent(
             Long pedidoId,
             Long idPyme,
+            String nombreCliente,
+            String emailCliente,
             String estadoAnterior,
             String estadoNuevo,
             Long repartidorId,
-            String observacion
+            String observacion,
+            List<PedidoItemEvent> items
     ) {
         this.pedidoId = pedidoId;
         this.idPyme = idPyme;
+        this.nombreCliente = nombreCliente;
+        this.emailCliente = emailCliente;
         this.estadoAnterior = estadoAnterior;
         this.estadoNuevo = estadoNuevo;
         this.repartidorId = repartidorId;
         this.observacion = observacion;
+        this.items = items;
         this.fechaEvento = LocalDateTime.now();
     }
 
-    public Long getPedidoId() {
-        return pedidoId;
-    }
+    public Long getPedidoId() { return pedidoId; }
+    public void setPedidoId(Long pedidoId) { this.pedidoId = pedidoId; }
 
-    public Long getIdPyme() {
-        return idPyme;
-    }
+    public Long getIdPyme() { return idPyme; }
+    public void setIdPyme(Long idPyme) { this.idPyme = idPyme; }
 
-    public String getEstadoAnterior() {
-        return estadoAnterior;
-    }
+    public String getNombreCliente() { return nombreCliente; }
+    public void setNombreCliente(String nombreCliente) { this.nombreCliente = nombreCliente; }
 
-    public String getEstadoNuevo() {
-        return estadoNuevo;
-    }
+    public String getEmailCliente() { return emailCliente; }
+    public void setEmailCliente(String emailCliente) { this.emailCliente = emailCliente; }
 
-    public Long getRepartidorId() {
-        return repartidorId;
-    }
+    public String getEstadoAnterior() { return estadoAnterior; }
+    public void setEstadoAnterior(String estadoAnterior) { this.estadoAnterior = estadoAnterior; }
 
-    public String getObservacion() {
-        return observacion;
-    }
+    public String getEstadoNuevo() { return estadoNuevo; }
+    public void setEstadoNuevo(String estadoNuevo) { this.estadoNuevo = estadoNuevo; }
 
-    public LocalDateTime getFechaEvento() {
-        return fechaEvento;
-    }
+    public Long getRepartidorId() { return repartidorId; }
+    public void setRepartidorId(Long repartidorId) { this.repartidorId = repartidorId; }
 
-    public void setPedidoId(Long pedidoId) {
-        this.pedidoId = pedidoId;
-    }
+    public String getObservacion() { return observacion; }
+    public void setObservacion(String observacion) { this.observacion = observacion; }
 
-    public void setIdPyme(Long idPyme) {
-        this.idPyme = idPyme;
-    }
+    public LocalDateTime getFechaEvento() { return fechaEvento; }
+    public void setFechaEvento(LocalDateTime fechaEvento) { this.fechaEvento = fechaEvento; }
 
-    public void setEstadoAnterior(String estadoAnterior) {
-        this.estadoAnterior = estadoAnterior;
-    }
-
-    public void setEstadoNuevo(String estadoNuevo) {
-        this.estadoNuevo = estadoNuevo;
-    }
-
-    public void setRepartidorId(Long repartidorId) {
-        this.repartidorId = repartidorId;
-    }
-
-    public void setObservacion(String observacion) {
-        this.observacion = observacion;
-    }
-
-    public void setFechaEvento(LocalDateTime fechaEvento) {
-        this.fechaEvento = fechaEvento;
-    }
+    public List<PedidoItemEvent> getItems() { return items; }
+    public void setItems(List<PedidoItemEvent> items) { this.items = items; }
 }

@@ -3,6 +3,7 @@ package cl.pymetrack.mspedidos.controller;
 import cl.pymetrack.mspedidos.dto.ActualizarEstadoPedidoRequest;
 import cl.pymetrack.mspedidos.entity.Pedido;
 import cl.pymetrack.mspedidos.service.PedidoService;
+import cl.pymetrack.mspedidos.dto.CrearPedidoRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,7 +11,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/pedidos")
-@CrossOrigin(origins = "*")
 public class PedidoController {
 
     private final PedidoService pedidoService;
@@ -35,8 +35,8 @@ public class PedidoController {
     }
 
     @PostMapping
-    public ResponseEntity<Pedido> create(@RequestBody Pedido pedido) {
-        return ResponseEntity.ok(pedidoService.save(pedido));
+    public ResponseEntity<Pedido> create(@RequestBody CrearPedidoRequest request) {
+        return ResponseEntity.ok(pedidoService.crearPedido(request));
     }
 
     @PatchMapping("/{id}/estado")
